@@ -1,0 +1,33 @@
+{% extends 'layouts/status-base.njk' %}
+
+{% block content %}
+  <pre>{{ summaryRows | dump }}</pre>
+    <h1 class="govuk-heading-m">
+        Quick links
+    </h1>
+    {% for permission in permissions %}
+        {{ govukButton({
+            text: permission.label,
+            href: permission.url,
+            isStartButton: true
+        }) }}
+    {% endfor %}
+    <h1 class="govuk-heading-m">
+        Livestock stats
+    </h1>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+        {% for row in summary.rows %}
+            <h2 class="govuk-heading-s">{{ row.name }}</h2>
+            <ol class="govuk-list govuk-list--number">
+            {% for cph in row.cphs %}
+                <li>{{ cph.id }}: {{ cph.count }} animals</li>
+            {% endfor %}
+            </ol>
+        {% endfor %}
+        </div>
+        <div class="govuk-grid-column-one-half">
+            <img src="{{ summary.mapUrl }}" alt="livestock map">
+        </div>
+    </div>
+{% endblock %}
