@@ -6,11 +6,11 @@ export const home = {
     register(server) {
       server.route([
         {
-          method: "GET",
-          path: "/",
-          ...homeController,
-        },
-      ]);
+          method: 'GET',
+          path: '/',
+          ...homeController
+        }
+      ])
     }
   }
 }
