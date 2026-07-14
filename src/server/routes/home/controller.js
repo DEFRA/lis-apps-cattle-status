@@ -1,7 +1,7 @@
 import {
   createHoldingService,
   createProfileService
-} from '@livestock/ui-services'
+} from '@livestock/hubs-infra-access/auth'
 import { config } from '#config/config.js'
 import { statusSnapshot } from '@livestock/taxonomy-status'
 
